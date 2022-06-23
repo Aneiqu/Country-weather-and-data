@@ -6,12 +6,14 @@ const countryName = document.querySelector(".country--input");
 const flag = document.querySelector(".flag");
 const borders = document.querySelector(".borders");
 const dataContainer = document.querySelector(".data--output");
-const contryLabel = document.querySelector(".country");
+const countryLabel = document.querySelector(".country");
+const capitalLabel = document.querySelector(".capital");
 const regionLabel = document.querySelector(".region");
 const populationLabel = document.querySelector(".population");
 const languageLabel = document.querySelector(".language");
 const currencyLabel = document.querySelector(".currency");
 const countryError = document.querySelector(".error--popup");
+const temperature = document.querySelector(".temperature");
 // Getting json format from fetch
 const getJSON = async function (url) {
   try {
@@ -56,14 +58,20 @@ const getCountryData = async function (country) {
   try {
     if (!dataContainer.classList.contains("hide")) dataContainer.classList.add("hide");
     const data = await getJSON(`https://restcountries.com/v3.1/name/${country}?fullText=true`);
-
+    console.log(data);
     // Creating error
     if (data == undefined) throw new Error();
+
+    // Calling weather
+    getWeather(data.latlng[0], data.latlng[0]);
 
     // Creating displayed element
 
     // Setting country name
-    contryLabel.textContent = `Country: ${data.name.common}`;
+    countryLabel.textContent = `Country: ${data.name.common}`;
+
+    // Setting country capital
+    capitalLabel.textContent = `Capital: ${data.capital}`;
 
     // Setting country region
     regionLabel.textContent = `Region: ${data.region}`;
@@ -86,15 +94,18 @@ const getCountryData = async function (country) {
 };
 
 // Getting weather informations
-const getWeather = async function (city) {
-  const weather = await fetch(`https://goweather.herokuapp.com/weather/${city}`);
+const getWeather = async function (lat, lng) {
+  const weather = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&hourly=temperature_2m`);
   const data = await weather.json();
   console.log(data);
+
+  // Creating date to later find correct temperature
+  const date = new Date().toISOString();
+  const fixedDate = date.slice(0, 13) + `:00`;
+  temperature.textContent = `Temperature: ${data.hourly.temperature_2m[data.hourly.time.indexOf(fixedDate)]}°C`;
 };
 
 // Event listeners
 searchBtn.addEventListener("click", () => {
   getCountryData(countryName.value);
 });
-
-// https://restcountries.com/v3.1/alpha?codes=BLR
