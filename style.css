@@ -1,0 +1,70 @@
+body {
+  background: radial-gradient(circle, rgba(255, 149, 0, 0.7231267507002801) 10%, rgba(255, 149, 0, 0.6895133053221288) 50%, rgba(255, 149, 0, 0.72) 90%);
+}
+
+.container {
+  /* Positioning block */
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Structure block */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  width: 360px;
+}
+
+.country--input {
+  /* Structure block */
+  height: 45px;
+  width: 360px;
+  border: none;
+  border-radius: 7.5px;
+
+  /* Typography block */
+  font-size: 170%;
+}
+
+.country--input:focus {
+  outline: none;
+}
+
+.btn {
+  /* Structure block */
+  width: 85px;
+  height: 35px;
+  margin: 5px;
+
+  background-color: white;
+  border: none;
+  border-radius: 7.5px;
+
+  /* Modifier block */
+  transition: 1s;
+}
+.city--btn {
+  margin-left: auto;
+}
+.search--btn {
+  margin-right: auto;
+}
+.btn:hover {
+  background-color: rgba(222, 222, 222, 0.9);
+  box-shadow: 0px 0px 2px 0px black;
+}
+
+.menu {
+  position: absolute;
+  /* Structure block */
+  height: 45px;
+  width: 45px;
+  top: 6%;
+  left: 65.7%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 7.5px;
+  border: none;
+}
