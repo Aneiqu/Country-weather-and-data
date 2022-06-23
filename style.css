@@ -59,3 +59,52 @@ body {
   box-shadow: 0px 0px 2px 0px black;
   outline: none;
 }
+
+.data--output {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 550px;
+  width: 400px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 0px rgb(255, 255, 255);
+
+  transition: 0.5s;
+}
+
+.flag {
+  top: 10px;
+  width: 400px;
+  height: 200px;
+  box-shadow: 0px 0px 1px 0px black;
+  border-radius: 15px;
+}
+
+.hide {
+  opacity: 0;
+}
+.error--popup {
+  position: absolute;
+  top: 3.75%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  align-content: center;
+  height: 35px;
+  background-color: rgb(255, 63, 63);
+  border-radius: 5px;
+  transition: 1s;
+  box-shadow: 0px 0px 5px 0px red;
+}
+
+.text {
+  width: 190px;
+
+  text-align: center;
+  font-size: 125%;
+}

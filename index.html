@@ -9,10 +9,20 @@
     <script async src="script.js"></script>
   </head>
   <body>
+    <div class="error--popup hide"><p class="text">Country not found</p></div>
     <div class="container">
       <input class="country--input" placeholder="Country..." type="text" />
       <button class="city--btn btn"">City mode</button>
       <button class="search--btn btn">Search</button>
+    </div>
+    <div class="data--output hide">
+      <img alt="Country flag" class="flag">
+      <p class="country">Country: </p>
+      <p class="region">Region: </p>
+      <p class="population">Population: </p>
+      <p class="language">Language: </p>
+      <p class="currency">Currency: </p>
+      <p class="borders">Bordered by: </p>
     </div>
   </body>
 </html>
